@@ -1,3 +1,3 @@
 # web-api-challenge
 
-In this challenge I created a quiz out of javascript. When the user takes the quiz, they are presented with a question. If they answer correctly then they are presented with another question until the questions are exhausted. If they enter an incorrect answer then 1 hp is removed from their total. Continued incorrect answers will remove hp until none remains. Once the quiz is completed then they can enter their initials and score. 
+In this challenge I created a quiz out of javascript. When the user takes the quiz, they are presented with a question. If they answer correctly then they are presented with another question until the questions are exhausted. If they enter an incorrect answer then 1 hp is removed from their total. Continued incorrect answers will remove hp until none remains. Once the quiz is completed, then they can enter their initials and the score will be displayed. 
