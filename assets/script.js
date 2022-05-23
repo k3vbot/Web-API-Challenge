@@ -1,13 +1,6 @@
 const quizContainer = document.getElementById('quiz')
 const resultsContainer = document.getElementById('results')
 const submitButton = document.getElementById('submit')
-
-function buildQuiz(){}
-
-function showResults(){}
-
-buildQuiz();
-
 const quizQuestions = [
     {
         question: "This is a question?",
@@ -46,7 +39,7 @@ function buildQuiz(){
             for(letter in currentQuestion.answers){
                 answers.push(
                     `<label>
-                    <input type="radio" name="questions${questionNumber}"
+                    <input type="radio" name="questions${questionNumber}" value="${letter}">
                     ${letter} :
                     ${currentQuestion.answers[letter]}
                     </label>`
@@ -58,11 +51,34 @@ function buildQuiz(){
             );
         }
     );
-    quizConstainer.innerHTML = output.join('');
-}
+    quizContainer.innerHTML = output.join('');
+};
 quizQuestions.forEach( (currentQuestion, questionNumber) => {
 
 });
+
+function showResults(){
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+    let numCorrect = 0;
+    quizQuestions.forEach( (currentQuestion, questionNumber) => {
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        if(userAnswer ===currentQuestion.correctAnswer){
+            numCorrect++;
+            answerContainers[questionNumber].getElementsByClassName.color = 'lightgreen';
+        
+        }
+        else{
+            answerContainers[questionNumber].style.color = 'red';
+        }
+    });
+    resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
+}
+
+
+
+buildQuiz();
 
 
 
