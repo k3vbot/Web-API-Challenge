@@ -1,0 +1,38 @@
+body{
+    font-size:30px;
+    color:#093145;
+    background-color: darkgrey;
+}
+
+#submit {
+    font-size: 20px;
+    background-color: rgb(212, 79, 101);
+    border: 5px;
+    padding: 10px;
+}
+
+#submit:hover{
+    background-color: pink;
+}
+
+#previous {
+    font-size: 20px;
+    background-color: rgb(212, 79, 101);
+    border: 5px;
+    padding: 10px;
+}
+
+#previous:hover{
+    background-color: pink;
+}
+
+#next {
+    font-size: 20px;
+    background-color: rgb(212, 79, 101);
+    border: 5px;
+    padding: 10px;
+}
+
+#next:hover{
+    background-color: pink;
+}
