@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,16 @@
     <title>JavaScript Quiz!</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
 </head>
+
 <body>
+    <button onclick="startQuiz()" id="startQuiz">Start the Quiz!</button>
     <div class="quiz-container">
-        <div id ="quiz"></div>
+        <div id="quiz">
+            <button id="submit">Submit Answers</button>
+            <div id="results"></div>
+        </div>
     </div>
-        <button id="previous">Previous Question</button>
-        <button id="submit">Submit Answer</button>
-        <button id="next">Next Question</button>
-    <div id="results"></div>
-    <script src = "assets/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
+
 </html>

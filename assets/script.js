@@ -1,40 +1,52 @@
-function buildQuiz(){
-    const output = [];
+function startQuiz(){
+    const startQuiz = document.getElementById('quiz');
+    const displayQuiz = startQuiz.style.display;  
+    if(displayQuiz =='none'){
+        startQuiz.style.display = 'block';
+    }
+    else {
+       startQuiz.style.display = 'none';
+    }
+}
+
+
+function makeQuiz() {
+    const yield = [];
     quizQuestions.forEach(
         (currentQuestion, questionNumber) => {
             const answers = [];
-            for(letter in currentQuestion.answers){
-            answers.push(
-                `<label>
+            for (letter in currentQuestion.answers) {
+                answers.push(
+                    `<label>
                 <input type="radio" name="question${questionNumber}" value="${letter}">
                 ${letter} :
                 ${currentQuestion.answers[letter]}
                 </label>`
-            );
-        }
-            output.push(
-                `<div class="slide">
-                    <div class="question"> ${currentQuestion.question} </div>
-                    <div class="answers"> ${answers.join('')} </div>
-                </div>`
+                );
+            }
+            yield.push(
+
+                `<div class="question"> ${currentQuestion.question} </div>
+                    <div class="answers"> ${answers.join('')} </div>`
+
             );
         }
     );
-    quizContainer.innerHTML = output.join('');
+    quizContainer.innerHTML = yield.join('');
 };
 
-function showResults(){
+function displayResults() {
     const answerContainers = quizContainer.querySelectorAll('.answers');
     let numCorrect = 0;
-    quizQuestions.forEach( (currentQuestion, questionNumber) => {
+    quizQuestions.forEach((currentQuestion, questionNumber) => {
         const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-        if(userAnswer === currentQuestion.correctAnswer){
+        const selected = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selected) || {}).value;
+        if (userAnswer === currentQuestion.correctAnswer) {
             numCorrect++;
             answerContainers[questionNumber].style.color = 'green';
         }
-        else{
+        else {
             answerContainers[questionNumber].style.color = 'red';
         }
     });
@@ -75,9 +87,9 @@ const quizQuestions = [
 
 
 
-buildQuiz();
+makeQuiz();
 
 
 
-submitButton.addEventListener('click', showResults);
+submitButton.addEventListener('click', displayResults);
 
